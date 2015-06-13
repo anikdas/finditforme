@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Find it for me</title>
+<meta charset="UTF-8">
+</head>
+<body ng-controller = "contentController">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./fb.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="./controller.js"></script>
+<script>
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<div id="status">
+</div>
+<div ng-show="show">
+	<form ng-submit="findPage('fresh')">
+		<input type = "text" ng-model = "page_name" required>
+		<input type = "text" ng-model = "search_string" required>
+		<button type = "submit" >Submit</button>
+	</form>
+		<button type = "button" ng-show="next" ng-click="findPage('next')" >Next</button>
+		<button type = "button" ng-show="prev" ng-click="findPage('prev')" >Previous</button>
+</div>
+<div>
+	<div>
+		{{message}}
+	</div>
+	<div ng-repeat = "post in qdata" >
+		<strong>
+			<p>{{post.name}}</p>
+		</strong>
+		<p>{{post.message}}</p>
+		<a href="{{post.link}}">{{post.link}}</a><br>
+		<span><strong>created on: {{post.created_time}}</strong></span>
+		<hr>
+	</div>
+</div>
+<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></div>
+</body>
+</html>
