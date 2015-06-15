@@ -52,7 +52,7 @@
 		<button id ="prevBtn"  class="btn btn-primary control {{ lessPost() ? 'disabled':''}} ladda-button" data-style="zoom-in" type = "button" ng-click="findPage('prev')" ><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
 		
 
-		<button id = "nextBtn" class="btn btn-primary control" type = "button" ng-click="stopProcess()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+		<button class="btn btn-primary control" type = "button" ng-click="stopProcess()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
 
 		
 		<button id = "nextBtn" class="btn btn-primary control ladda-button {{countEqualsZero() ? 'disabled' : ''}}" type = "button" data-style="zoom-in" ng-click="findPage('next')" ><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
