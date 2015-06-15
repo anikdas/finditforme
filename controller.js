@@ -62,12 +62,11 @@ function contentController ($scope, $location,$http) {
 	};
 	$scope.findPage = function (type) {
 		var l = Ladda.create(document.getElementById('mainBtn'));
-		x1 = document.getElementById('prevBtn');
-		var l1 = Ladda.create(x1);
-		console.log(x1);
-		console.log(l1);
+		l1 = Ladda.create(document.getElementById('prevBtn'));
 		l2 = Ladda.create(document.getElementById('nextBtn'));
 		l.start();
+		l1.start();
+		l2.start();
 		$scope.message = '';
 		$scope.qdata=[];
 		if(type=='fresh'){
