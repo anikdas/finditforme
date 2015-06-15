@@ -5,6 +5,27 @@ function contentController ($scope, $location,$http) {
 	$scope.qdata = [];
 	$scope.next = false;
 	$scope.prev = false;
+	$scope.count = 0;
+	$scope.searching = false;
+	$scope.countDirection = true; //true for positive (++)
+
+	//for clearfix class;
+	$scope.indexDivByThree = function (index) {
+		if((index+1) % 3 == 0 )
+			return true;
+		else return false;
+	}
+
+	$scope.lessPost = function () {
+		if($scope.count<=25)
+			return true;
+		return false;
+	}
+
+	$scope.GetDate = function (date) {
+		var d = new Date(date);
+      return d;
+	}
 	window.fbAsyncInit = function() {
 	FB.init({
 	  appId      : '1415143362107952',
@@ -38,16 +59,23 @@ function contentController ($scope, $location,$http) {
 	  console.log(response);
 	});
 	};
-
 	$scope.findPage = function (type) {
 		$scope.message = '';
 		$scope.qdata=[];
-		if(type=='fresh')
+		if(type=='fresh'){
+			$scope.countDirection = true;
+			$scope.searching = false;
+			$scope.count = 0;
 			url = "https://graph.facebook.com/"+$scope.page_name+"/posts/?access_token="+$scope.access_token;
-		if(type =='next')
+		}
+		if(type =='next'){
+			$scope.countDirection = true;
 			url = $scope.paging.next;
-		if(type =='prev')
+		}
+		if(type =='prev'){
+			$scope.countDirection = false;
 			url = $scope.paging.previous;
+		}
 		$.ajax({
 		url: url,
 		type: "GET",
@@ -58,7 +86,16 @@ function contentController ($scope, $location,$http) {
 				$scope.message = 'No posts available to search';
 			}
 			console.log($scope.search_string);
+			if($scope.search_string == undefined ||$scope.search_string == ' '){
+				$scope.message = 'wrong query';
+				return;
+			}
+			$scope.searching = true;
 			for (var i = 0; i < search.length; i++) {
+				if($scope.countDirection)
+					$scope.count++;
+				else
+					$scope.count--;
 				console.log(search[i].message);
 				if(search[i].message!==undefined){
 					if(search[i].message.toLowerCase().search($scope.search_string.toLowerCase())!=-1){
@@ -74,18 +111,22 @@ function contentController ($scope, $location,$http) {
 					}
 				}
 			};
-			if($scope.qdata.length==0){
-				$scope.findPage('next');
-				$scope.message = 'No result found please press"Next" to search more posts';
-			}else{
-				$scope.message = '';
-			}
-			console.log($scope.qdata);
 			if(data.paging !==undefined){
 				$scope.paging = data.paging;
 				$scope.next = true;	
 				$scope.prev = true;
 			} 
+			if($scope.qdata.length==0){
+				$scope.findPage('next');
+			}else{
+				$scope.message = '';
+			}
+			console.log($scope.qdata);
+			// if(data.paging !==undefined){
+			// 	$scope.paging = data.paging;
+			// 	$scope.next = true;	
+			// 	$scope.prev = true;
+			// } 
 			console.log($scope.paging);
 			$scope.$apply();			
 		},

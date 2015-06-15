@@ -1,0 +1,19 @@
+.head-banner{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-image: -webkit-linear-gradient(130deg, #A14FB8, #00A6BB);
+	background-image: -o-linear-gradient(130deg, #A14FB8, #00A6BB);
+	background-image: linear-gradient(130deg, #A14FB8, #00A6BB);
+	width: 100%;
+}
+.main-body{
+	margin-top:20px;
+}
+
+.well-custom{
+	width: 70%;
+}
+
+.curtain{
+	width: 100%;
+}
