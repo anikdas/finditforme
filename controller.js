@@ -9,6 +9,10 @@ function contentController ($scope, $location,$http) {
 	$scope.searching = false;
 	$scope.countDirection = true; //true for positive (++)
 
+	var l = Ladda.create(document.getElementById('mainBtn'));
+	l1 = Ladda.create(document.getElementById('prevBtn'));
+	l2 = Ladda.create(document.getElementById('nextBtn'));
+
 	$scope.countEqualsZero = function () {
 		if($scope.count==0)
 			return true;
@@ -66,12 +70,11 @@ function contentController ($scope, $location,$http) {
 	});
 	};
 	$scope.findPage = function (type) {
-		var l = Ladda.create(document.getElementById('mainBtn'));
-		l1 = Ladda.create(document.getElementById('prevBtn'));
-		l2 = Ladda.create(document.getElementById('nextBtn'));
-		l.start();
-		l1.start();
-		l2.start();
+		if(!l.isLoading()){
+			l.start();
+			l1.start();
+			l2.start();
+		}
 		$scope.message = '';
 		$scope.qdata=[];
 		if(type=='fresh'){
