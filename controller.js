@@ -7,12 +7,17 @@ function contentController ($scope, $location,$http) {
 	$scope.prev = false;
 	$scope.count = 0;
 	$scope.searching = false;
+	$scope.stop = false;
 	$scope.countDirection = true; //true for positive (++)
 
 	var l = Ladda.create(document.getElementById('mainBtn'));
 	l1 = Ladda.create(document.getElementById('prevBtn'));
 	l2 = Ladda.create(document.getElementById('nextBtn'));
 
+
+	$scope.stopProcess =function () {
+		$scope.stop = true;
+	}
 	$scope.countEqualsZero = function () {
 		if($scope.count==0)
 			return true;
@@ -70,6 +75,16 @@ function contentController ($scope, $location,$http) {
 	});
 	};
 	$scope.findPage = function (type) {
+
+		if($scope.stop){
+			if(l.isLoading()){
+			l.stop();
+			l1.stop();
+			l2.stop();
+			$scope.message="search stopped";
+			return;
+		}
+		}
 		if(!l.isLoading()){
 			l.start();
 			l1.start();
