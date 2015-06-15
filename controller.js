@@ -9,6 +9,11 @@ function contentController ($scope, $location,$http) {
 	$scope.searching = false;
 	$scope.countDirection = true; //true for positive (++)
 
+	$scope.countEqualsZero = function () {
+		if($scope.count==0)
+			return true;
+		return false;
+	}
 	//for clearfix class;
 	$scope.indexDivByThree = function (index) {
 		if((index+1) % 3 == 0 )
