@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<title>Find it for me</title>
+<meta charset="UTF-8">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="./custom.css">
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body ng-controller = "contentController">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="./fb.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+<script src="./controller.js"></script>
+<script>
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+<div class="container head-banner" align="center">
+	<h1>Find It For Me</h1>
+	<p class="lead">Search any post with the given query. Requires page username or id and search string</p>
+</div>
+<div id="status">
+</div>
+<div class="container main-body" align="center">
+<div class="curtain">
+<p class="lead" ng-hide="show">Facebook login is required* to start searching!</p>
+	<form class="form-inline" ng-submit="findPage('fresh')">
+	<div class="form-group">
+		<input class="form-control" type = "text" ng-model = "page_name" placeholder = "page username or id" required ng-disabled="!show">
+	</div>
+	<div class="form-group">
+		<input class="form-control " type = "text" ng-model = "search_string" placeholder="query?" ng-disabled="!show" required>
+	</div>
+		<button id = "mainBtn"  class="btn btn-primary control {{show ? '' : 'disabled'}}" type = "submit" >Submit</button>
+		<button  class="btn btn-primary control {{ lessPost() ? 'disabled':''}}" type = "button" ng-show="prev" ng-click="findPage('prev')" ><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+		<button class="btn btn-primary control" type = "button" ng-show="next" ng-click="findPage('next')" ><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+	</form>
+</div>
+		<br>
+	<!-- <div ng-show="next" class="well well-custom">
+		<div  class="row">
+			<div class="col-md-6"><button  class="btn btn-primary btn-block" type = "button" ng-show="prev" ng-click="findPage('prev')" >Previous</button></div>
+			<div class="col-md-6"><button class="btn btn-primary btn-block" type = "button" ng-show="next" ng-click="findPage('next')" >Next</button></div>
+		</div>
+	</div> -->
+</div>
+<div class="container">
+	<center>
+		<h3 ng-show="searching">searched {{count}} posts!</h3>
+	</center>
+	<div ng-show="message" class="alert alert-info" role="alert">
+			{{message}}
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat-start = "post in qdata" >
+			<div class="thumbnail">
+			      <img ng-show="{{post.picture}}" src="{{post.picture}}" alt="...">
+			      <div class="caption">
+			        <p class="lead"><strong>{{post.name}}</strong></p>
+			        <p>{{post.message}}</p>
+			        <a href="{{post.link}}">link</a>
+			        <br>
+			        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+					<span><strong>created on: {{GetDate(post.created_time) | date:'medium'}}</strong></span>
+			      </div>
+			    </div>
+		</div>
+		<div class="{{indexDivByThree($index) ? 'clearfix' : ''}}" ng-repeat-end
+		></div>
+	</div>
+</div>
+<hr>
+<div class="container">
+	<div class="row" align="center">
+		<div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></div>
+		<br><br>
+		<small>*login with facebook is required to generate a generic access token as Facebook doen't allow anonymous API calls. Nothing to worry this application does not store any of your personal data :)</small>
+	</div>
+</div>
+
+</body>
+</html>
