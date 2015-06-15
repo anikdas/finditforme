@@ -62,6 +62,8 @@ function contentController ($scope, $location,$http) {
 	};
 	$scope.findPage = function (type) {
 		var l = Ladda.create(document.getElementById('mainBtn'));
+		var l1 = Ladda.create(document.getElementById('prevBtn'));
+		var l2 = Ladda.create(document.getElementById('nextBtn'));
 		l.start();
 		$scope.message = '';
 		$scope.qdata=[];
@@ -125,6 +127,8 @@ function contentController ($scope, $location,$http) {
 				$scope.message = '';
 			}
 			l.stop();
+			l1.stop();
+			l2.stop();
 			console.log($scope.qdata);
 			// if(data.paging !==undefined){
 			// 	$scope.paging = data.paging;
