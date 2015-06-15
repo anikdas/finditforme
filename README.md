@@ -20,6 +20,10 @@ This app searches through the page timeline using _page username_ and the search
 
 BuzzFeed Video's Facebook page url looks something like this `https://www.facebook.com/BuzzFeedVideo?fref=ts`. So the username for the page would be `BuzzFeedVideo`. So username for any other page can be resolved from the url itself.
 
+#Use cases
+
+Now for example you want to find all the 9GAG.TV posts on 9GAG. Generally all 9GAG.TV posts have the word `tv` in the post. So if you write `9gag` (username of 9GAG page) in the _username_ box and `tv` in the _query_ box, the app will search through sets of 25 posts and will show the result. 
+
 #Download
 
 You can download the release 
