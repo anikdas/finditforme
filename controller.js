@@ -61,6 +61,8 @@ function contentController ($scope, $location,$http) {
 	});
 	};
 	$scope.findPage = function (type) {
+		var l = Ladda.create(getElementById('mainBtn'));
+		l.start();
 		$scope.message = '';
 		$scope.qdata=[];
 		if(type=='fresh'){
@@ -122,6 +124,7 @@ function contentController ($scope, $location,$http) {
 			}else{
 				$scope.message = '';
 			}
+			l.stop();
 			console.log($scope.qdata);
 			// if(data.paging !==undefined){
 			// 	$scope.paging = data.paging;
