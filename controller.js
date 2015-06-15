@@ -62,7 +62,10 @@ function contentController ($scope, $location,$http) {
 	};
 	$scope.findPage = function (type) {
 		var l = Ladda.create(document.getElementById('mainBtn'));
-		l1 = Ladda.create(document.getElementById('prevBtn'));
+		x1 = document.getElementById('prevBtn');
+		var l1 = Ladda.create(x1);
+		console.log(x1);
+		console.log(l1);
 		l2 = Ladda.create(document.getElementById('nextBtn'));
 		l.start();
 		$scope.message = '';
