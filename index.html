@@ -48,10 +48,10 @@
 		<button id = "mainBtn"  class="btn btn-primary control ladda-button {{show ? '' : 'disabled'}}" data-style="zoom-in" type = "submit" >Submit</button>
 		
 
-		<button id ="prevBtn"  class="btn btn-primary control {{ lessPost() ? 'disabled':''}} ladda-button" data-style="zoom-in" type = "button" ng-show="prev" ng-click="findPage('prev')" ><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+		<button id ="prevBtn"  class="btn btn-primary control {{ lessPost() ? 'disabled':''}} ladda-button" data-style="zoom-in" type = "button" ng-click="findPage('prev')" ><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
 		
 
-		<button id = "nextBtn" class="btn btn-primary control ladda-button" type = "button" ng-show="next" data-style="zoom-in" ng-click="findPage('next')" ><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+		<button id = "nextBtn" class="btn btn-primary control ladda-button" type = "button" data-style="zoom-in" ng-click="findPage('next')" ><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
 	</form>
 </div>
 		<br>
