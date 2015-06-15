@@ -28,7 +28,8 @@ function contentController ($scope, $location,$http) {
 	}
 	window.fbAsyncInit = function() {
 	FB.init({
-	  appId      : '1415143362107952',
+		//facebook app id
+	  appId      : '494795677343992',
 	  cookie     : true,  // enable cookies to allow the server to access 
 	                      // the session
 	  xfbml      : true,  // parse social plugins on this page
