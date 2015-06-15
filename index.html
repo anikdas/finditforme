@@ -64,7 +64,7 @@
 	<div class="row">
 		<div class="col-md-4 col-sm-6 col-xs-12" ng-repeat-start = "post in qdata" >
 			<div class="thumbnail">
-			      <img ng-show="{{post.picture}}" src="{{post.picture}}" alt="...">
+			      <img ng-show="post.picture" src="{{post.picture}}" alt="...">
 			      <div class="caption">
 			        <p class="lead"><strong>{{post.name}}</strong></p>
 			        <p>{{post.message}}</p>
