@@ -9,14 +9,11 @@ function contentController ($scope, $location,$http) {
 	$scope.searching = false;
 	$scope.countDirection = true; //true for positive (++)
 
-<<<<<<< HEAD
-=======
 	$scope.countEqualsZero = function () {
 		if($scope.count==0)
 			return true;
 		return false;
 	}
->>>>>>> gh-pages
 	//for clearfix class;
 	$scope.indexDivByThree = function (index) {
 		if((index+1) % 3 == 0 )
@@ -36,12 +33,8 @@ function contentController ($scope, $location,$http) {
 	}
 	window.fbAsyncInit = function() {
 	FB.init({
-<<<<<<< HEAD
-	  appId      : '1415143362107952',
-=======
 		//facebook app id
 	  appId      : '494795677343992',
->>>>>>> gh-pages
 	  cookie     : true,  // enable cookies to allow the server to access 
 	                      // the session
 	  xfbml      : true,  // parse social plugins on this page
@@ -73,15 +66,12 @@ function contentController ($scope, $location,$http) {
 	});
 	};
 	$scope.findPage = function (type) {
-<<<<<<< HEAD
-=======
 		var l = Ladda.create(document.getElementById('mainBtn'));
 		l1 = Ladda.create(document.getElementById('prevBtn'));
 		l2 = Ladda.create(document.getElementById('nextBtn'));
 		l.start();
 		l1.start();
 		l2.start();
->>>>>>> gh-pages
 		$scope.message = '';
 		$scope.qdata=[];
 		if(type=='fresh'){
@@ -143,12 +133,9 @@ function contentController ($scope, $location,$http) {
 			}else{
 				$scope.message = '';
 			}
-<<<<<<< HEAD
-=======
 			l.stop();
 			l1.stop();
 			l2.stop();
->>>>>>> gh-pages
 			console.log($scope.qdata);
 			// if(data.paging !==undefined){
 			// 	$scope.paging = data.paging;
