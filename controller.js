@@ -131,11 +131,11 @@ function contentController ($scope, $location,$http) {
 			if($scope.qdata.length==0){
 				$scope.findPage('next');
 			}else{
+				l.stop();
+				l1.stop();
+				l2.stop();
 				$scope.message = '';
 			}
-			l.stop();
-			l1.stop();
-			l2.stop();
 			console.log($scope.qdata);
 			// if(data.paging !==undefined){
 			// 	$scope.paging = data.paging;
