@@ -165,6 +165,9 @@ function contentController ($scope, $location,$http) {
 		},
 		error: function (data) {
 			$scope.message = data.responseJSON.error.message;
+			l.stop();
+			l1.stop();
+			l2.stop();
 			$scope.$apply();
 		}
 	});
