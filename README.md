@@ -4,7 +4,7 @@ search posts on facebook pages.
 #Demo
 
 * [http://anikdas.com/finditforme/](http://anikdas.com/finditforme/)
-* [anikdas.github.io/finditforme](anikdas.github.io/finditforme)
+* [anikdas.github.io/finditforme](http://anikdas.github.io/finditforme)
 
 #Motivation
 
