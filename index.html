@@ -53,7 +53,7 @@
 <div id="status">
 </div>
 <div class="container main-body" align="center">
-<div class="curtain">
+<div class="curtain hidden-xs hidden-sm">
 <p class="lead" ng-hide="show">Facebook login is required* to start searching!</p>
 	<form class="form-inline" ng-submit="findPage('fresh')">
 	<div class="form-group">
@@ -75,6 +75,30 @@
 
 	</form>
 </div>
+<div class="row">
+	<div class="col-xs-12 col-sm-12">
+		<form class="form" ng-submit="findPage('fresh')">
+	<div class="form-group">
+		<input class="form-control" type = "text" ng-model = "page_name" placeholder = "page username or id" required ng-disabled="!show">
+	</div>
+	<div class="form-group">
+		<input class="form-control " type = "text" ng-model = "search_string" placeholder="query?" ng-disabled="!show" required>
+	</div>
+		<button id = "mainBtn"  class="btn btn-primary control ladda-button {{show ? '' : 'disabled'}}" data-style="zoom-in" type = "submit" >Submit</button>
+		
+
+		<button id ="prevBtn"  class="btn btn-primary control {{ lessPost() ? 'disabled':''}} ladda-button" data-style="zoom-in" type = "button" ng-click="findPage('prev')" ><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
+		
+
+		<button class="btn btn-primary control" type = "button" ng-click="stopProcess()"><span class="glyphicon glyphicon-stop" aria-hidden="true"></span></button>
+
+		
+		<button id = "nextBtn" class="btn btn-primary control ladda-button {{countEqualsZero() ? 'disabled' : ''}}" type = "button" data-style="zoom-in" ng-click="findPage('next')" ><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+
+	</form>
+
+	</div>
+</div>
 		<br>
 	<!-- <div ng-show="next" class="well well-custom">
 		<div  class="row">
@@ -83,7 +107,7 @@
 		</div>
 	</div> -->
 </div>
-<div class="container">
+<div class="container hidden-xs hidden-sm">
 	<center>
 		<h3 ng-show="searching">searched {{count}} posts!</h3>
 	</center>
