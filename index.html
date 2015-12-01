@@ -42,10 +42,14 @@
   the FB.login() function when clicked.
 -->
 <div class="container head-banner" align="center">
-	<h1>Find It For Me</h1>
-	<p class="lead">Search posts in Facebook pages with the given query. Requires page username or id and search string</p>
-	<a href="https://github.com/anikdas/finditforme" class="btn btn-lg btn-info">Fork it on GitHub</a>
+<div class="row">
+	<div class="col-md-12">
+		<h1>Find It For Me</h1>
+		<p class="lead">Search posts in Facebook pages with the given query. Requires page username or id and search string</p>
+		<a href="https://github.com/anikdas/finditforme" class="btn btn-lg btn-info">Fork it on GitHub</a>
+	</div>
 </div>
+	</div>
 <div id="status">
 </div>
 <div class="container main-body" align="center">
@@ -105,6 +109,38 @@
 		></div>
 	</div>
 </div>
+<div class="container hidden-lg hidden-md">
+	<div class="row">
+		<div class="panel panel-default" ng-repeat = "post in qdata">
+			<div class="panel-heading" role="tab" id="headingThree">
+			  <h4 class="panel-title">
+			    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" aria-expanded="false" aria-controls="collapseThree">
+			      {{post.name}}
+			    </a>
+			  </h4>
+			</div>
+		<div id="collapse{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+			  <div class="panel-body">
+			    <div class="thumbnail">
+			      <img ng-show="post.picture" src="{{post.picture}}" alt="...">
+			      <div class="caption">
+			        <p class="lead"><strong>{{post.name}}</strong></p>
+			        <p>{{post.message}}</p>
+			        <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+			        <a href="{{post.link}}"> Attached link</a>
+			        <br>
+			        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p> -->
+					<span><strong>created on: {{GetDate(post.created_time) | date:'medium'}}</strong></span>
+			      </div>
+			    </div>
+
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 <hr>
 <div class="container">
 	<div class="row" align="center">
