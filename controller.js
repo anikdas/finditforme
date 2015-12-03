@@ -37,6 +37,7 @@ function contentController ($scope, $location,$http) {
 	}
 
 	$scope.GetDate = function (date) {
+		date = date.replace('+0000','');
 		var d = new Date(date);
       return d;
 	}
