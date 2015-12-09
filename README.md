@@ -27,7 +27,6 @@ Now for example you want to find all the 9GAG.TV posts on 9GAG. Generally all 9G
 #Download
 
 You can download the release 
-* [zip](https://github.com/anikdas/finditforme/archive/v1.1.zip)
-* [tar.gz](https://github.com/anikdas/finditforme/archive/v1.1.tar.gz)
+* [latest release](https://github.com/anikdas/finditforme/releases)
 
 Just create and App from [Facebook Developer](https://developers.facebook.com/apps/) and Replace the AppId in `controller.js` file.
